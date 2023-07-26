@@ -42,4 +42,5 @@ echo "setting cursortheme \"$cursor\""
 [[ -f /usr/bin/gconftool-2 ]] && gconftool-2 --type string -s /desktop/gnome/peripherals/mouse/cursor $cursor
 [[ -f /usr/bin/gsettings ]] && gsettings set org.gnome.desktop.interface cursor-theme $cursor
 [[ -f /usr/bin/xfconf-query ]] && xfconf-query --channel xsettings --property /Gtk/CursorThemeName --set $cursor
+[[ -f /usr/bin/xfconf-query ]] && xfconf-query --channel xsettings --property /Gtk/CursorThemeSize --set $(gsettings get org.gnome.desktop.interface cursor-size)
 exit
